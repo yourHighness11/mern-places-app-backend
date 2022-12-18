@@ -11,6 +11,7 @@ const bodyParser = require("body-parser");
 const path = require("path");
 mongoose.set("strictQuery", true);
 
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use("/uploads/images", express.static(path.join("uploads", "images")));
 
