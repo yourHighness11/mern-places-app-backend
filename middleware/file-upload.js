@@ -1,6 +1,5 @@
 const multer = require("multer");
 // const { v1: uuid } = require("uuid");
-const currentTime = new Date().getTime();
 const MIME_TYPE_MAP = {
   "image/png": "png",
   "image/jpg": "jpg",
@@ -15,7 +14,7 @@ const fileUpload = multer({
     },
     filename: (req, file, cb) => {
       const ext = MIME_TYPE_MAP[file.mimetype];
-      cb(null, currentTime + "." + ext);
+      cb(null, file.filename);
     },
   }),
   fileFilter: (req, file, cb) => {
