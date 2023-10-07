@@ -75,13 +75,16 @@ const createPlace = async (req, res, next) => {
   } catch (error) {
     return next(error);
   }
+  const cloudinaryImageUrl = await cloudinary.v2.uploader.upload(req.file.path, {
+    folder: "places_folder"
+  });
 
   const createdPlace = new Place({
     title,
     description,
     address,
     location: coordinates,
-    image: req.file.path,
+    image: cloudinaryImageUrl.url,
     creator: req.userData.userId,
   });
 
