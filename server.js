@@ -9,8 +9,6 @@ const placesRoutes = require("./routes/places-routes");
 const { default: mongoose } = require("mongoose");
 const bodyParser = require("body-parser");
 const path = require("path");
-const cors = require("cors");
-app.use(cors());
 mongoose.set("strictQuery", true);
 
 app.use(bodyParser.json());
