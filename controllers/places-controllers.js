@@ -5,7 +5,7 @@ const getCoordsForAddress = require("../util/location");
 const Place = require("../models/place");
 const User = require("../models/user");
 const { default: mongoose } = require("mongoose");
-
+const cloudinary = require("../cloudinaryConfig");
 const getPlaceById = async (req, res, next) => {
   const placeId = req.params.pid;
 
